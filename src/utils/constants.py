@@ -1,0 +1,1 @@
+ASSET_CLASSES = ["pe", "pd", "re", "inf", "nr", "hf"]
