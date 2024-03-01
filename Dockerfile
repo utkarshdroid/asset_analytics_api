@@ -6,12 +6,15 @@ WORKDIR /app
 
 COPY requirements.txt .
 
-# Mount the ssh for use with pip install
-RUN --mount=type=ssh pip install --prefer-binary --no-cache-dir --upgrade -r requirements.txt
+RUN pip install --prefer-binary --no-cache-dir --upgrade -r requirements.txt
 
-ENV PYTHONPATH "${PYTHONPATH}:/app/"
+RUN pip install pytest
 
 COPY . .
+
+RUN pytest 
+
+ENV PYTHONPATH "${PYTHONPATH}:/app/"
 
 EXPOSE 8000
 
