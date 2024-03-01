@@ -32,9 +32,9 @@ async def shutdown_event():
 
 @app.get("/api/investors", response_model=list[Firm])
 async def get_investors():
-  return asset_utils.get_investor_commitments_details
+  return await asset_utils.get_all_investor_funds()
 
-@app.get("/api/investor/commitment/{asset_class}/{investor_id}")
+@app.get("/api/investor/commitment/{asset_class}/{investor_id}", response_model=list[Commitment])
 async def get_commitments(investor_id: int, asset_class: str) -> List[Commitment]:
-    return asset_utils.get_investor_commitments_details
+    return await asset_utils.get_investor_commitments_details(investor_id,asset_class)
 
