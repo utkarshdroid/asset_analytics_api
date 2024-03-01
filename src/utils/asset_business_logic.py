@@ -1,4 +1,3 @@
-from flask import request
 from typing import List
 from src.models.firms import Firm
 from src.models.commitment import Commitment

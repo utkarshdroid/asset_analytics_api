@@ -1,10 +1,11 @@
 from datetime import datetime
 from pydantic import BaseModel, PositiveInt
+from typing import Optional
 
 class Firm(BaseModel):
   firm_id: PositiveInt
   firm_name: str
-  AUM: PositiveInt
+  aum: Optional[int] = None
   date_added: datetime
   last_updated: datetime
   established_at: datetime
@@ -13,4 +14,4 @@ class Firm(BaseModel):
   country: str
   address: str
   postal_code: str
-  
+
